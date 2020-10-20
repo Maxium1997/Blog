@@ -11,6 +11,11 @@
 
             <div id="modal-menu" style="width: 100%">
                 <ul class="list-inline text-center">
+                    {% if request.user.is_superuser %}
+                        <i class="float-left">Superuser</i>
+                        <li class="p-3 border-bottom" style="cursor: pointer" onclick="window.location.href='/admin/'">Django Administration</li>
+                    {% endif %}
+                        <i class="float-left">User</i>
                 </ul>
             </div>
 

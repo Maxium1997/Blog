@@ -15,47 +15,56 @@
                 <div class="input-group mb-3 mt-2">
                     <div class="input-group-prepend">
                         <span class="input-group-text">
-                            <img src="{% static 'image/user.png' %}" width="20px">
+                            <img src="{% static 'image/user.png' %}" width="15px">
                         </span>
                     </div>
-                {{ form.username }}
-                {{ form.username.errors }}
+                    {{ form.username }}
+                    {{ form.username.errors }}
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text">
-                            <img src="{% static 'image/lock.png' %}" width="20px">
+                            <img src="{% static 'image/gender.png' %}" width="15px">
                         </span>
                     </div>
-                {{ form.password }}
-                {{ form.password.errors }}
+                    {{ form.gender }}
+                    {{ form.gender.errors }}
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text">
-                            <img src="{% static 'image/gender.png' %}" width="20px">
+                            <img src="{% static 'image/phone-call.png' %}" width="15px">
                         </span>
                     </div>
-                {{ form.gender }}
-                {{ form.gender.errors }}
+                    {{ form.phone }}
+                    {{ form.phone.errors }}
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text">
-                            <img src="{% static 'image/phone-call.png' %}" width="20px">
+                            <img src="{% static 'image/clock.png' %}" width="15px">
                         </span>
                     </div>
-                {{ form.phone }}
-                {{ form.phone.errors }}
+                    {{ form.birthday }}
+                    {{ form.birthday.errors }}
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text">
-                            <img src="{% static 'image/clock.png' %}" width="20px">
+                            <img src="{% static 'image/key.png' %}" width="15px">
                         </span>
                     </div>
-                {{ form.birthday }}
-                {{ form.birthday.errors }}
+                    {{ form.password1 }}
+                    {{ form.password1.errors }}
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <img src="{% static 'image/tick-inside-circle.png' %}" width="15px">
+                        </span>
+                    </div>
+                    {{ form.password2 }}
+                    {{ form.password2.errors }}
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 text-center">

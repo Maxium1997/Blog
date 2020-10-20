@@ -1,5 +1,6 @@
-from django.shortcuts import render
-from django.contrib.auth.views import LoginView, LogoutView
+from django.shortcuts import render, redirect
+from django.contrib import auth
+from django.contrib.auth.views import LoginView
 from django.views.generic import CreateView
 
 from accounts.models import User
@@ -12,10 +13,14 @@ class SignUpView(CreateView):
     template_name = 'registration/sign_up_form.html'
     form_class = SignUpForm
 
+    def form_valid(self, form):
+        user = form.save()
+        auth.login(self.request, user)
+        return redirect('index')
+
+    def get_success_url(self):
+        return redirect('index')
+
 
 class Login(LoginView):
     form_class = LoginForm
-
-
-class Logout(LogoutView):
-    pass

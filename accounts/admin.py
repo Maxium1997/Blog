@@ -7,3 +7,8 @@ from .models import User
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
     list_display = ['username', 'email', 'last_name', 'first_name', 'gender', 'updated_time', 'last_login']
+    list_filter = ['gender', 'is_superuser']
+    ordering = ['-is_superuser']
+    fields = ['username', 'password', ('first_name', 'last_name'), 'email',
+              'gender', 'phone', 'birthday',
+              ('is_superuser', 'is_staff', 'is_active')]

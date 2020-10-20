@@ -12,3 +12,10 @@ class User(AbstractUser):
     birthday = models.DateField(null=True, auto_now=False)
     updated_time = models.DateTimeField(auto_now=True)
     introduction = models.TextField()
+
+
+class Box(models.Model):
+    owner = models.OneToOneField(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return "{}'s Box".format(self.owner.username)

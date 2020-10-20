@@ -1,13 +1,15 @@
 from django.db import models
 
 from .definitions import Status
-from accounts.models import User
+from accounts.models import User, Box
 # Create your models here.
 
 
 class Tag(models.Model):
     name = models.CharField(max_length=20)
     slug = models.SlugField(unique=True)
+    is_public = models.BooleanField(default=False)
+    boxes = models.ManyToManyField(Box, related_name='tags')
 
     def __str__(self):
         return self.name

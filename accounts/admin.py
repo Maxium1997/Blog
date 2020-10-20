@@ -1,6 +1,7 @@
 from django.contrib import admin
 
-from .models import User
+from .models import User, Box
+from posts.models import Tag
 # Register your models here.
 
 
@@ -12,3 +13,13 @@ class UserAdmin(admin.ModelAdmin):
     fields = ['username', 'password', ('first_name', 'last_name'), 'email',
               'gender', 'phone', 'birthday',
               ('is_superuser', 'is_staff', 'is_active')]
+
+
+class BoxInline(admin.TabularInline):
+    model = Tag.boxes.through
+
+
+@admin.register(Box)
+class BoxAdmin(admin.ModelAdmin):
+    list_display = ['owner']
+    inlines = [BoxInline]

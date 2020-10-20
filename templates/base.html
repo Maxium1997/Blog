@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+{% include 'head.html' %}
+
+{% include 'header.html' %}
+
+<title>
+    {% block title %}
+    {% endblock %}｜Maximum
+</title>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="container mb-4">
+                <div class="d-flex flex-row">
+                    <div class="p-1">
+                        <a href="{% url 'index' %}">/Index</a>
+                        {% block direction_toolbar %}
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+
+            {% include 'messages.html' %}
+
+            <div class="container-fluid">
+                <div class="row">
+                    {% block main %}
+                        <div class="container-fluid">
+                            <div class="row justify-content-center">
+                                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-2">
+                                    {% block left_side %}
+                                    {% endblock %}
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                                    {% block content %}
+                                    {% endblock %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+{% include 'footer.html' %}
+</html>

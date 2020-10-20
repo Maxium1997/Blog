@@ -1,0 +1,13 @@
+from django.db import models
+from django.contrib.auth.models import AbstractUser
+
+from .definitions import Gender
+# Create your models here.
+
+
+class User(AbstractUser):
+    gender = models.PositiveSmallIntegerField(default=Gender.Unset.value[0])
+    phone = models.CharField(max_length=15, unique=True, null=True, blank=False)
+    birthday = models.DateField(null=True, auto_now=False)
+    updated_time = models.DateTimeField(auto_now=True)
+    introduction = models.TextField()

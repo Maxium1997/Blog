@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}My Posts{% endblock %}
+
+{% block direction_toolbar %}
+    <u>/posts</u>
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <div class="row">
+            <h1>My Posts</h1>
+            <div class="container">
+                <div class="row">
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'my_drafts' %}">Drafts</a>
+                        </li>
+                        <li class="nav-item">
+                            <i class="nav-link text-muted">Published</i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

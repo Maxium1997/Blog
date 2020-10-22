@@ -1,15 +1,16 @@
 from django.contrib import admin
 from django.urls import path, include
-
 from django.contrib.auth.views import LoginView, LogoutView
 
-from posts.views import IndexView
+from .views import IndexView, MyDraftsView, MyPublicPostsView
 
 urlpatterns = [
     path('', IndexView.as_view(), name='index'),
 
-    path('accounts/', include([
-        path('login', LoginView.as_view(), name='login'),
-        path('logout', LogoutView.as_view(), name='logout'),
+    path('my/', include([
+        path('posts/', include([
+            path('drafts', MyDraftsView.as_view(), name='my_drafts'),
+            path('public', MyPublicPostsView.as_view(), name='my_public'),
+        ])),
     ]))
 ]

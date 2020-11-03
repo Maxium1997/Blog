@@ -1,7 +1,8 @@
+{% load static %}
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light navbar-laravel shadow mb-4 bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light navbar-laravel shadow mb-4">
         <div class="container">
-            <a class="navbar-brand text-dark" href="{% url 'index' %}">Maximum</a>
+            <a class="navbar-brand text-white" href="{% url 'index' %}">BlogDW</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -12,14 +13,14 @@
                     {% if user.is_authenticated %}
                         {% include 'user_features.html' %}
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="{% url 'logout' %}" onclick="return confirm('Sure to logout?')">Logout</a>
+                            <a class="nav-link text-white" href="{% url 'logout' %}" onclick="return confirm('Sure to logout?')">Logout</a>
                         </li>
                     {% else %}
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="{% url 'login' %}">Login</a>
+                            <a class="nav-link text-white" href="{% url 'login' %}">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="{% url 'sign_up' %}">Sign up</a>
+                            <a class="nav-link text-white" href="{% url 'sign_up' %}">Sign up</a>
                         </li>
                     {% endif %}
                 </ul>
@@ -27,3 +28,10 @@
         </div>
     </nav>
 </header>
+<style type="text/css">
+    header nav{
+        background-image: url("{% static 'image/abstract-dark-background-with-flowing-colouful-waves.jpg' %}");
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+    }
+</style>

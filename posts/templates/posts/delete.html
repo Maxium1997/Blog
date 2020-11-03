@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Delete Post{% endblock %}
+
+{% block direction_toolbar %}
+    <a href="{% url 'my_drafts' %}">/posts</a>
+    <u>/delete</u>
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                <div class="card-body shadow">
+                    <h3>{{ post.title }}</h3>
+                    <p>{{ post.content|linebreaksbr|safe }}</p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                <form method="post">
+                    {% csrf_token %}
+                    <div>
+                        <p>Are you sure to delete this post?</p>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-danger">Sure</button>
+                        <button type="button" class="btn btn-secondary" onclick="history.back()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

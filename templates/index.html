@@ -4,19 +4,19 @@
 {% block title %}Home{% endblock %}
 
 {% block main %}
-    <div class="container-fluid" id="intro-concept" style="height: 40rem">
+    <div class="container-fluid mb-2" id="intro-concept">
         <div class="row justify-content-center">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
-                <h1 class="text-dark">Welcome to my Blog Platform</h1>
+                <h1 class="text-light">Welcome to my Blog Platform</h1>
                 <p>It is a platform that develop for everyone to record themselves.
                     No matter your personal information, your thinking or just for emotional expression.
                     All things you can do more than you imagination.</p>
-                <div class="text-sm-left text-lg-right">
-                    <button type="button" class="btn btn-primary">Let's get it</button>
+                <div>
+                    <button type="button" class="btn btn-primary" onclick="window.location.href='{% url 'my_drafts' %}'">Let's get it</button>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-                <img src="{% static 'image/index/files.png' %}" width="100%">
+                <img src="{% static 'image/index/files.png' %}" width="100%" alt="files">
             </div>
         </div>
     </div>
@@ -24,8 +24,8 @@
     <div class="container mb-2" id="items-intro">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                <div class="border rounded text-center">
-                    <img src="{% static 'image/index/24-hours.png' %}">
+                <div class="border rounded text-center item-block">
+                    <img src="{% static 'image/index/24-hours.png' %}" alt="24-hours">
                     <h4>Time</h4>
                     <p>
                         When you would like to use platform, you can use anytime, everywhere.
@@ -33,8 +33,8 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                <div class="border rounded text-center">
-                    <img src="{% static 'image/index/folders.png' %}">
+                <div class="border rounded text-center item-block">
+                    <img src="{% static 'image/index/folders.png' %}" alt="folders">
                     <h4>Information</h4>
                     <p>
                         All information about your self you can record them, store them and separate them.
@@ -42,8 +42,8 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                <div class="border rounded text-center">
-                    <img src="{% static 'image/index/head.png' %}">
+                <div class="border rounded text-center item-block">
+                    <img src="{% static 'image/index/head.png' %}" alt="head">
                     <h4>Thinking</h4>
                     <p>
                         All your thinking you can write it down or share if you have internet.
@@ -53,10 +53,13 @@
         </div>
     </div>
     <style>
-        #intro-concept div{
-            align-items: center;
+        body{
+            background-image: url("{% static 'image/abstract-dark-background-with-flowing-colouful-waves.jpg' %}");
+            background-size: 100% 100%;
+            background-attachment: fixed;
+            color: #ffffff;
         }
-        #items-intro div{
+        #intro-concept div{
             align-items: center;
         }
     </style>

@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'accounts',
     'posts',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -131,5 +131,6 @@ MEDIA_ROOT = [
 
 AUTH_USER_MODEL = 'accounts.User'
 
+LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'login'

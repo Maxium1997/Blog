@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 from .definitions import Status
 from accounts.models import User, Box
@@ -24,6 +25,9 @@ class Post(models.Model):
     published_time = models.DateTimeField(null=True)
     updated_time = models.DateTimeField(null=True)
     tags = models.ManyToManyField(Tag)
+
+    def get_absolute_url(self):
+        return reverse('my_drafts')
 
     def __str__(self):
         return self.title

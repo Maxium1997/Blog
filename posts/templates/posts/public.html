@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load static %}
+{% load post_filters %}
 
 {% block title %}My Posts{% endblock %}
 
@@ -9,7 +11,10 @@
 {% block main %}
     <div class="container">
         <div class="row">
-            <h1>My Posts</h1>
+            <div>
+                <h1>My Posts</h1>
+                <button type="button" class="btn btn-outline-success" onclick="window.location.href='{% url 'new_post' %}'">New post</button>
+            </div>
             <div class="container">
                 <div class="row">
                     <ul class="nav">
@@ -17,9 +22,37 @@
                             <a class="nav-link" href="{% url 'my_drafts' %}">Drafts</a>
                         </li>
                         <li class="nav-item">
-                            <i class="nav-link text-muted">Published</i>
+                            <span class="nav-link text-muted border-bottom">Published</span>
                         </li>
                     </ul>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    {% for public_post in public_posts %}
+                        <div class="col-12 border-bottom p-2">
+                            <div>
+                                <span class="h3" style="cursor: pointer" onclick="window.location.href='{% url 'post_detail' public_post.pk %}'">{{ public_post.title }}</span>
+                                <span class="text-muted">{{ public_post.updated_time }}</span>
+                            </div>
+                            <div>
+                                <span class="text-muted">{{ public_post.content|concept }}</span>
+                            </div>
+                            <div>
+                                {% for tag in public_post.tags.all %}
+                                    {{ tag }}
+                                {% empty %}
+                                    <span class="text-warning">tag+</span>
+                                {% endfor %}
+                                <img class="float-right" style="cursor: pointer" src="{% static 'icons/right-arrow.png' %}" width="15px" onclick="window.location.href='{% url 'post_edit' public_post.pk %}'">
+                            </div>
+                        </div>
+                    {% empty %}
+                        <div class="col-12 text-center mt-5">
+                            <span>No published public posts recently.</span>
+                        </div>
+                    {% endfor %}
+
                 </div>
             </div>
         </div>

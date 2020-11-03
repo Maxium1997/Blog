@@ -14,9 +14,9 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="container mb-4 text-light">
+            <div class="container mb-4">
                 <div class="d-flex flex-row">
-                    <div class="p-1">
+                    <div class="p-1 text-secondary">
                         <a href="{% url 'index' %}">/Index</a>
                         {% block direction_toolbar %}
                         {% endblock %}
@@ -37,6 +37,11 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
                                     {% block content %}
+                                    {% endblock %}
+                                </div>
+
+                                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                                    {% block right_side %}
                                     {% endblock %}
                                 </div>
                             </div>

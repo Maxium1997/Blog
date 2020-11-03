@@ -1,18 +1,37 @@
-<div id="prompt_message_bar" class="text-center">
-    {% if messages %}
+<div id="prompt_bar" class="text-center">
+    {% if messages and errors %}
         {% for message in messages %}
             {% if message.tags == 'success' %}
-                <div id="prompt_message" class="card my-4 text-center alert-success prompt">{{ message }}</div>
+                <div id="prompt" class="card my-4 text-center alert-success prompt">{{ message }}</div>
             {% elif message.tags == 'warning' %}
-                <div id="prompt_message" class="card my-4 text-center alert-warning prompt">{{ message }}</div>
+                <div id="prompt" class="card my-4 text-center alert-warning prompt">{{ message }}</div>
             {% elif message.tags == 'error' %}
-                <div id="prompt_message" class="card my-4 text-center alert-danger prompt">{{ message }}</div>
+                <div id="prompt" class="card my-4 text-center alert-danger prompt">{{ message }}</div>
             {% endif %}
+        {% endfor %}
+    {% elif messages %}
+        {% for message in messages %}
+            {% if message.tags == 'success' %}
+                <div id="prompt" class="card my-4 text-center alert-success prompt">{{ message }}</div>
+            {% elif message.tags == 'warning' %}
+                <div id="prompt" class="card my-4 text-center alert-warning prompt">{{ message }}</div>
+            {% elif message.tags == 'error' %}
+                <div id="prompt" class="card my-4 text-center alert-danger prompt">{{ message }}</div>
+            {% endif %}
+        {% endfor %}
+    {% elif errors %}
+        {% for field in form %}
+            {% for error in field.errors %}
+                <div id="prompt" class="card my-4 text-left alert-danger prompt">{{ error|escape }}</div>
+            {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+            <div id="prompt" class="card my-4 text-left alert-danger prompt">{{ error|escape }}</div>
         {% endfor %}
     {% endif %}
 </div>
 <style type="text/css">
-    #prompt_message_bar{
+    #prompt_bar{
         position: fixed;
         left: 20%;
         width: 60%;
@@ -21,6 +40,6 @@
 </style>
 <script type="text/javascript">
     setTimeout(function(){
-        $('.prompt_message').hide()
+        $('.prompt').hide()
     }, 5000)
 </script>

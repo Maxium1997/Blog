@@ -1,3 +1,4 @@
+from datetime import datetime
 from django import forms
 from django.utils.text import slugify
 
@@ -22,3 +23,29 @@ class TagForm(forms.ModelForm):
         if commit:
             self_object.save()
         return self_object
+
+
+class PostForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        self.author = kwargs.pop('author')
+        super(PostForm, self).__init__(*args, **kwargs)
+    title = forms.CharField(required=True,
+                            widget=forms.TextInput(attrs={'class': 'border-0 p-2 h1 font-weight-light',
+                                                          'placeholder': 'Title',
+                                                          'autofocus': 'autofocus'}))
+    content = forms.CharField(required=False,
+                              widget=forms.Textarea(attrs={'rows': '12',
+                                                           'class': 'border-0 p-2 h5 font-weight-light',
+                                                           'placeholder': 'What do you think?'}))
+
+    def save(self, commit=True):
+        post = super().save(commit=False)
+        post.author = self.author
+        post.updated_time = datetime.now()
+        if commit:
+            post.save()
+        return post
+
+    class Meta:
+        model = Post
+        fields = ['title', 'content', 'tags']

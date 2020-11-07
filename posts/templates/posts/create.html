@@ -12,7 +12,6 @@
         <div class="row">
             <form method="post">
                 {% csrf_token %}
-                {{form.author}}
                 <div>
                     {{ form.title }}
                 </div>
@@ -20,6 +19,7 @@
                     {{ form.content }}
                 </div>
                 <button type="submit" class="btn btn-outline-success">Save</button>
+                <button type="button" class="btn btn-outline-secondary" onclick="history.back();">Cancel</button>
             </form>
         </div>
     </div>
@@ -27,5 +27,20 @@
         textarea:focus, input:focus{
             outline: none;
         }
+        textarea{
+            resize: none;
+        }
     </style>
+    <script type="text/javascript">
+        window.onload=textarea_adjust();
+        function textarea_adjust(){
+            var textarea=document.getElementById("id_content");
+            textarea.cols=document.body.clientWidth;
+            var adjustedHeight=textarea.clientHeight;
+            adjustedHeight=Math.max(textarea.scrollHeight,adjustedHeight);
+            if (adjustedHeight>textarea.clientHeight){
+                textarea.style.height=adjustedHeight+'px';
+            }
+        }
+    </script>
 {% endblock %}

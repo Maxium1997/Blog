@@ -18,9 +18,6 @@
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     {{ form.content }}
                 </div>
-{#                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">#}
-{#                    {{ form.tags }}#}
-{#                </div>#}
                 {% if form.instance.status == status.Saved.value.0 %}
                 <button type="submit" class="btn btn-outline-success">Save</button>
                 <button type="button" class="btn btn-outline-primary" onclick="window.location.href='{% url 'post_publish' post.pk %}'">Publish</button>
@@ -36,5 +33,20 @@
         textarea:focus, input:focus{
             outline: none;
         }
+        textarea{
+            resize: none;
+        }
     </style>
+    <script type="text/javascript">
+        window.onload=textarea_adjust();
+        function textarea_adjust(){
+            var textarea=document.getElementById("id_content");
+            textarea.cols=document.body.clientWidth;
+            var adjustedHeight=textarea.clientHeight;
+            adjustedHeight=Math.max(textarea.scrollHeight,adjustedHeight);
+            if (adjustedHeight>textarea.clientHeight){
+                textarea.style.height=adjustedHeight+'px';
+            }
+        }
+    </script>
 {% endblock %}

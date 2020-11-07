@@ -34,8 +34,8 @@ class PostForm(forms.ModelForm):
                                                           'placeholder': 'Title',
                                                           'autofocus': 'autofocus'}))
     content = forms.CharField(required=False,
-                              widget=forms.Textarea(attrs={'rows': '12',
-                                                           'class': 'border-0 p-2 h5 font-weight-light',
+                              widget=forms.Textarea(attrs={'class': 'col-12 border-0 p-2 h5 font-weight-light',
+                                                           'onkeyup': 'autogrow(this);',
                                                            'placeholder': 'What do you think?'}))
 
     def save(self, commit=True):

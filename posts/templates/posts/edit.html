@@ -3,7 +3,11 @@
 {% block title %}Edit Post{% endblock %}
 
 {% block direction_toolbar %}
+    {% if form.instance.status == status.Saved.value.0 %}
     <a href="{% url 'my_drafts' %}">/posts</a>
+    {% elif form.instance.status == status.Published.value.0 %}
+    <a href="{% url 'my_public' %}">/posts</a>
+    {% endif %}
     <u>/edit</u>
 {% endblock %}
 

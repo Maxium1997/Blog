@@ -26,29 +26,25 @@
 
             {% include 'messages.html' %}
 
-            <div class="container-fluid">
-                <div class="row">
-                    {% block main %}
-                        <div class="container-fluid">
-                            <div class="row justify-content-center">
-                                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-2">
-                                    {% block left_side %}
-                                    {% endblock %}
-                                </div>
-                                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-                                    {% block content %}
-                                    {% endblock %}
-                                </div>
-
-                                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-                                    {% block right_side %}
-                                    {% endblock %}
-                                </div>
-                            </div>
+            {% block main %}
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-2">
+                            {% block left_side %}
+                            {% endblock %}
                         </div>
-                    {% endblock %}
+                        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                            {% block content %}
+                            {% endblock %}
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                            {% block right_side %}
+                            {% endblock %}
+                        </div>
+                    </div>
                 </div>
-            </div>
+            {% endblock %}
         </div>
     </div>
 </body>

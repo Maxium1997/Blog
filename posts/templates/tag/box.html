@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Tag Box{% endblock %}
+
+{% block direction_toolbar %}
+    <u>/tags</u>
+{% endblock %}
+
+{% block content %}
+    {% for tag in tag_box %}
+        <button type="button" class="btn btn-outline-secondary badge-pill">{{ tag }}</button>
+    {% endfor %}
+    <button type="button" class="btn btn-success badge-pill">Add+</button>
+{% endblock %}

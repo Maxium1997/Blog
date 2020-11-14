@@ -1,12 +1,12 @@
 from datetime import datetime
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import redirect, get_object_or_404
 from django.contrib import messages
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
-from django.views.generic import TemplateView, View, UpdateView, DeleteView, CreateView
+from django.views.generic import TemplateView, UpdateView, DeleteView, CreateView
 
-from .models import Post, Tag
+from .models import Post
 from .definitions import Status
 from .forms import PostForm
 # Create your views here.
@@ -54,7 +54,7 @@ class PostCreateView(CreateView):
 @method_decorator(login_required, name='dispatch')
 class PostUpdateView(UpdateView):
     model = Post
-    fields = ['title', 'content']
+    fields = ['title', 'content', 'tags']
     template_name = 'posts/edit.html'
 
     def get_context_data(self, **kwargs):
@@ -96,3 +96,14 @@ def post_publish(request, pk):
         post.save()
         messages.success(request, "Your post has published, you can share with everyone.")
         return redirect('my_public')
+
+
+@login_required
+def post_tags_clear(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+
+    if request.user != post.author:
+        raise PermissionError
+    else:
+        post.tags.clear()
+        return redirect('my_drafts')

@@ -1,13 +1,19 @@
 from datetime import datetime
 from django import forms
+from django.db.models import Q
 
-from .models import Post
+from .models import Post, Tag
 
 
 class PostForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         self.author = kwargs.pop('author')
         super(PostForm, self).__init__(*args, **kwargs)
+        self.fields['tags'] = forms.ModelMultipleChoiceField(
+            required=True,
+            queryset=Tag.objects.filter(Q(is_public=True) | Q(creator=self.author)),
+            widget=forms.CheckboxSelectMultiple,
+        )
     title = forms.CharField(required=True,
                             widget=forms.TextInput(attrs={'class': 'border-0 p-2 h1 font-weight-light',
                                                           'placeholder': 'Title',
@@ -19,4 +25,4 @@ class PostForm(forms.ModelForm):
 
     class Meta:
         model = Post
-        fields = ['title', 'content']
+        fields = ['title', 'content', 'tags']

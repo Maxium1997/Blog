@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Edit Post{% endblock %}
 
@@ -22,6 +23,11 @@
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     {{ form.content }}
                 </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-light">
+                    <img src="{% static 'icons/tag.png' %}">
+                    Pick up tags
+                    {{ form.tags }}
+                </div>
 
                 {% if form.instance.status == status.Saved.value.0 %}
                 <button type="submit" class="btn btn-outline-success">Save</button>
@@ -40,6 +46,12 @@
         }
         textarea{
             resize: none;
+        }
+        li{
+            display: inline;
+        }
+        img{
+            width: 12px;
         }
     </style>
     <script type="text/javascript">

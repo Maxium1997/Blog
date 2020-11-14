@@ -2,15 +2,18 @@ from django.db import models
 from django.urls import reverse
 
 from .definitions import Status
-from accounts.models import User, Box
+from accounts.models import User
 # Create your models here.
 
 
 class Tag(models.Model):
     name = models.CharField(max_length=20)
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField()
     is_public = models.BooleanField(default=False)
-    boxes = models.ManyToManyField(Box, related_name='tags')
+    creator = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+
+    def get_absolute_url(self):
+        return reverse('tag_box')
 
     def __str__(self):
         return self.name

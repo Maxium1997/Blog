@@ -2,15 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04e9dccf-1caf-477d-a43a-cb858b20e29a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/posts/migrations/0004_auto_20201114_0347.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/posts/tag_views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/posts/templates/tag/box.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/accounts/migrations/0004_delete_box.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/posts/migrations/0005_auto_20201115_0342.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/posts/migrations/0006_auto_20201115_0346.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/posts/tag_forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/posts/templates/tag/add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/icons/tag.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/templates/registration/sign_up_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/registration/sign_up_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/posts/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/posts/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/posts/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/tag_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/posts/tag_views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/posts/templates/posts/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/templates/posts/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/templates/posts/public.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/templates/posts/public.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/templates/tag/box.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/templates/tag/box.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/posts/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/posts/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/posts/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user_features.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user_features.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,6 +141,10 @@
     </state>
     <state x="224" y="76" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1603426895055" />
     <state x="224" y="92" key="SettingsEditor/0.23.1680.950@0.23.1680.950" timestamp="1604396192165" />
+    <state width="625" height="500" key="SwitcherDM" timestamp="1605381019722">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="625" height="500" key="SwitcherDM/0.0.1680.1050@0.0.1680.1050" timestamp="1605381019722" />
     <state x="421" y="18" width="838" height="1032" key="search.everywhere.popup" timestamp="1603987891345">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>

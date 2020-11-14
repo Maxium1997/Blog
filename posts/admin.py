@@ -6,5 +6,4 @@ from .models import Tag
 
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
-    list_display = ['name', 'slug', 'is_public']
-    filter_horizontal = ['boxes']
+    list_display = ['name', 'slug', 'is_public', 'creator']

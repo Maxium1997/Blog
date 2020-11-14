@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Tag Box{% endblock %}
+
+{% block direction_toolbar %}
+    <a href="{% url 'tag_box' %}">/tags</a>
+    <u>/add</u>
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="card-body col-xs-12 col-sm-12 col-md-8 col-lg-6 shadow">
+                <img src="{% static 'icons/tag.png' %}" width="20%">
+                <form method="post">
+                    {% csrf_token %}
+                    <div>
+                        {{ form.as_p }}
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-success">Add</button>
+                        <button type="button" class="btn btn-secondary" onclick="history.back()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -3,7 +3,7 @@ from django.contrib import auth
 from django.contrib.auth.views import LoginView
 from django.views.generic import CreateView
 
-from accounts.models import User, Box
+from accounts.models import User
 from accounts.forms import SignUpForm, LoginForm
 # Create your views here.
 
@@ -15,7 +15,6 @@ class SignUpView(CreateView):
 
     def form_valid(self, form):
         user = form.save()
-        Box.objects.create(owner=user).save()
         auth.login(self.request, user)
         return redirect('index')
 

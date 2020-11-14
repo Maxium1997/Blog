@@ -4,7 +4,7 @@ from django.urls import path, include
 from .views import IndexView, MyDraftsView, MyPublicPostsView, PostDetailView, \
     PostCreateView, PostUpdateView, PostDeleteView, \
     post_publish
-from .tag_views import TagBoxView
+from .tag_views import TagBoxView, TagAddView
 
 urlpatterns = [
     path('', IndexView.as_view(), name='index'),
@@ -22,8 +22,9 @@ urlpatterns = [
             ]))
         ])),
 
-        path('tag/', include([
+        path('tags/', include([
             path('box', TagBoxView.as_view(), name='tag_box'),
+            path('add', TagAddView.as_view(), name='tag_add'),
         ]))
     ]))
 ]

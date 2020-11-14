@@ -60,7 +60,6 @@ class PostUpdateView(UpdateView):
     def get_context_data(self, **kwargs):
         post = super(PostUpdateView, self).get_object()
         kwargs['form'] = PostForm(instance=post, author=self.request.user)
-        kwargs['tags'] = self.request.user.box.tags.all()
         kwargs['status'] = Status.__members__
         return super(PostUpdateView, self).get_context_data(**kwargs)
 

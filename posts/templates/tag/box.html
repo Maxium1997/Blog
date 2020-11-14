@@ -6,9 +6,25 @@
     <u>/tags</u>
 {% endblock %}
 
-{% block content %}
-    {% for tag in tag_box %}
-        <button type="button" class="btn btn-outline-secondary badge-pill">{{ tag }}</button>
-    {% endfor %}
-    <button type="button" class="btn btn-success badge-pill">Add+</button>
+{% block main %}
+    <div class="container">
+        <div class="row justify-content-center">
+            {% for tag in tag_box %}
+                {% if tag.id|divisibleby:2 %}
+                    <button type="button" class="btn btn-primary badge-pill mt-1 mr-1">{{ tag }}</button>
+                {% elif tag.id|divisibleby:3 %}
+                    <button type="button" class="btn btn-danger badge-pill mt-1 mr-1">{{ tag }}</button>
+                {% elif tag.id|divisibleby:5 %}
+                    <button type="button" class="btn btn-warning badge-pill mt-1 mr-1">{{ tag }}</button>
+                {% elif tag.id|divisibleby:7 %}
+                    <button type="button" class="btn btn-secondary badge-pill mt-1 mr-1">{{ tag }}</button>
+                {% elif tag.id|divisibleby:11 %}
+                    <button type="button" class="btn btn-success badge-pill mt-1 mr-1">{{ tag }}</button>
+                {% else %}
+                    <button type="button" class="btn btn-info badge-pill mt-1 mr-1">{{ tag }}</button>
+                {% endif %}
+            {% endfor %}
+            <button type="button" class="btn btn-outline-success badge-pill mt-1" onclick="window.location.href='{% url 'tag_add' %}'">Add+</button>
+        </div>
+    </div>
 {% endblock %}

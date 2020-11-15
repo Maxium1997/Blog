@@ -11,17 +11,17 @@
         <div class="row justify-content-center">
             {% for tag in tag_box %}
                 {% if tag.id|divisibleby:2 %}
-                    <button type="button" class="btn btn-primary badge-pill mt-1 mr-1">{{ tag }}</button>
+                    <button type="button" class="btn btn-primary badge-pill mt-1 mr-1" onclick="window.location.href='{% url 'tag_posts' tag.slug %}'">{{ tag }}</button>
                 {% elif tag.id|divisibleby:3 %}
-                    <button type="button" class="btn btn-danger badge-pill mt-1 mr-1">{{ tag }}</button>
+                    <button type="button" class="btn btn-danger badge-pill mt-1 mr-1" onclick="window.location.href='{% url 'tag_posts' tag.slug %}'">{{ tag }}</button>
                 {% elif tag.id|divisibleby:5 %}
-                    <button type="button" class="btn btn-warning badge-pill mt-1 mr-1">{{ tag }}</button>
+                    <button type="button" class="btn btn-warning badge-pill mt-1 mr-1" onclick="window.location.href='{% url 'tag_posts' tag.slug %}'">{{ tag }}</button>
                 {% elif tag.id|divisibleby:7 %}
-                    <button type="button" class="btn btn-secondary badge-pill mt-1 mr-1">{{ tag }}</button>
+                    <button type="button" class="btn btn-secondary badge-pill mt-1 mr-1" onclick="window.location.href='{% url 'tag_posts' tag.slug %}'">{{ tag }}</button>
                 {% elif tag.id|divisibleby:11 %}
-                    <button type="button" class="btn btn-success badge-pill mt-1 mr-1">{{ tag }}</button>
+                    <button type="button" class="btn btn-success badge-pill mt-1 mr-1" onclick="window.location.href='{% url 'tag_posts' tag.slug %}'">{{ tag }}</button>
                 {% else %}
-                    <button type="button" class="btn btn-info badge-pill mt-1 mr-1">{{ tag }}</button>
+                    <button type="button" class="btn btn-info badge-pill mt-1 mr-1" onclick="window.location.href='{% url 'tag_posts' tag.slug %}'">{{ tag }}</button>
                 {% endif %}
             {% endfor %}
             <button type="button" class="btn btn-outline-success badge-pill mt-1" onclick="window.location.href='{% url 'tag_add' %}'">Add+</button>

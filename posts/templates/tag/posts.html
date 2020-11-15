@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load post_filters %}
+
+{% block title %}Tag by {{ tag.slug }}{% endblock %}
+
+{% block direction_toolbar %}
+    <a href="{% url 'tag_box' %}">/tags</a>
+    <u>/{{ tag.slug }}</u>
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <div class="row">
+            <div>
+                <img src="{% static 'icons/previous.png' %}" class="bg-danger" onclick="history.back()">
+                <h1 class="float-left">Tag by {{ tag }}</h1>
+            </div>
+            {% for post in posts %}
+                <div class="card-body col-12 mt-4 shadow">
+                    <h3>{{ post.title }}</h3>
+                    <p>{{ post.content|shorten:5|linebreaksbr|safe }}</p>
+                    {% for tag in post.tags.all %}
+                        <span class="text-muted">#{{ tag }}</span>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <style type="text/css">
+        img{
+            width: 6%;
+            height: auto;
+        }
+    </style>
+{% endblock %}

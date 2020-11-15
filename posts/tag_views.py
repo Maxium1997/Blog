@@ -1,10 +1,11 @@
+from django.shortcuts import get_object_or_404, redirect
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, DetailView
 from django.db.models import Q
 from django.utils.text import slugify
 
-from .models import Tag
+from .models import Tag, Post
 from .tag_forms import TagForm
 
 
@@ -39,3 +40,13 @@ class TagAddView(CreateView):
         form.instance.slug = slugify(form.instance.name)
         form.save()
         return super(TagAddView, self).form_valid(form)
+
+
+@method_decorator(login_required, name='dispatch')
+class TagPostsView(DetailView):
+    model = Tag
+    template_name = 'tag/posts.html'
+
+    def get_context_data(self, **kwargs):
+        kwargs['posts'] = Post.objects.filter(tags__name__contains=self.get_object())
+        return super(TagPostsView, self).get_context_data(**kwargs)

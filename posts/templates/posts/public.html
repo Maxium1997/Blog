@@ -36,9 +36,12 @@
                                 <span class="text-muted">{{ public_post.updated_time }}</span>
                             </div>
                             <div>
-                                <span class="text-muted">{{ public_post.content|concept }}</span>
+                                <span class="text-muted">{{ public_post.content|shorten:2 }}</span>
                             </div>
                             <div>
+                                {% for tag in public_post.tags.all %}
+                                    <span style="font-size: 12px">#{{ tag }}</span>
+                                {% endfor %}
                                 <img class="float-right" style="cursor: pointer" src="{% static 'icons/right-arrow.png' %}" width="15px" onclick="window.location.href='{% url 'post_edit' public_post.pk %}'">
                             </div>
                         </div>

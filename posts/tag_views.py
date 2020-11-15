@@ -6,6 +6,7 @@ from django.db.models import Q
 from django.utils.text import slugify
 
 from .models import Tag, Post
+from .definitions import Status
 from .tag_forms import TagForm
 
 
@@ -48,5 +49,6 @@ class TagPostsView(DetailView):
     template_name = 'tag/posts.html'
 
     def get_context_data(self, **kwargs):
-        kwargs['posts'] = Post.objects.filter(tags__name__contains=self.get_object())
+        filter_criteria = Q(tags__name__contains=self.get_object()) & Q(status=Status.Published.value[0])
+        kwargs['posts'] = Post.objects.filter(filter_criteria)
         return super(TagPostsView, self).get_context_data(**kwargs)

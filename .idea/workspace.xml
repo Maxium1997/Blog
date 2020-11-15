@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04e9dccf-1caf-477d-a43a-cb858b20e29a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/posts/templates/tag/posts.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/icons/previous.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/posts/tag_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/posts/tag_views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/templates/posts/drafts.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/templates/posts/drafts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/templates/posts/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/templates/posts/edit.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/posts/templates/posts/public.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/templates/posts/public.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/templates/tag/box.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/templates/tag/box.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/templatetags/post_filters.py" beforeDir="false" afterPath="$PROJECT_DIR$/posts/templatetags/post_filters.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/posts/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

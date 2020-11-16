@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 
-from .views import IndexView, MyDraftsView, MyPublicPostsView, PostDetailView, \
+from .views import IndexView, MyDraftsView, MyPublicPostsView, MyPrivacyPostView, PostDetailView, \
     PostCreateView, PostUpdateView, PostDeleteView, \
     post_publish, post_tags_clear
 from .tag_views import TagBoxView, TagAddView, TagPostsView
@@ -13,6 +13,7 @@ urlpatterns = [
         path('posts/', include([
             path('drafts', MyDraftsView.as_view(), name='my_drafts'),
             path('public', MyPublicPostsView.as_view(), name='my_public'),
+            path('privacy', MyPrivacyPostView.as_view(), name='my_privacy'),
             path('new', PostCreateView.as_view(), name='new_post'),
             path('<pk>/', include([
                 path('detail', PostDetailView.as_view(), name='post_detail'),

@@ -49,6 +49,5 @@ class TagPostsView(DetailView):
     template_name = 'tag/posts.html'
 
     def get_context_data(self, **kwargs):
-        filter_criteria = Q(tags__name__contains=self.get_object()) & Q(status=Status.Published.value[0])
-        kwargs['posts'] = Post.objects.filter(filter_criteria)
+        kwargs['posts'] = Post.objects.filter(tags__name__contains=self.get_object(), status=Status.Published.value[0])
         return super(TagPostsView, self).get_context_data(**kwargs)

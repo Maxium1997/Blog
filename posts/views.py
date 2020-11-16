@@ -35,6 +35,15 @@ class MyPublicPostsView(TemplateView):
 
 
 @method_decorator(login_required, name='dispatch')
+class MyPrivacyPostView(TemplateView):
+    template_name = 'posts/privacy.html'
+    
+    def get_context_data(self, **kwargs):
+        kwargs['privacy_posts'] = Post.objects.filter(author=self.request.user, status=Status.Privacy.value[0])
+        return super(MyPrivacyPostView, self).get_context_data(**kwargs)
+
+
+@method_decorator(login_required, name='dispatch')
 class PostCreateView(CreateView):
     model = Post
     fields = ['title', 'content']

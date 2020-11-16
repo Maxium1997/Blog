@@ -22,35 +22,35 @@
                             <a class="nav-link" href="{% url 'my_drafts' %}">Drafts</a>
                         </li>
                         <li class="nav-item">
-                            <span class="nav-link text-muted border-bottom">Published</span>
+                            <a class="nav-link" href="{% url 'my_public' %}">Published</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'my_privacy' %}">Privacy</a>
+                            <span class="nav-link text-muted border-bottom">Privacy</span>
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="container">
                 <div class="row">
-                    {% for public_post in public_posts %}
+                    {% for privacy_post in privacy_posts %}
                         <div class="col-12 border-bottom p-2">
                             <div>
-                                <span class="h3" style="cursor: pointer" onclick="window.location.href='{% url 'post_detail' public_post.pk %}'">{{ public_post.title }}</span>
-                                <span class="text-muted">{{ public_post.updated_time }}</span>
+                                <span class="h3" style="cursor: pointer" onclick="window.location.href='{% url 'post_detail' privacy_post.pk %}'">{{ privacy_post.title }}</span>
+                                <span class="text-muted">{{ privacy_post.updated_time }}</span>
                             </div>
                             <div>
-                                <span class="text-muted">{{ public_post.content|shorten:2 }}</span>
+                                <span class="text-muted">{{ privacy_post.content|shorten:2 }}</span>
                             </div>
                             <div>
-                                {% for tag in public_post.tags.all %}
+                                {% for tag in privacy_post.tags.all %}
                                     <a href="{% url 'tag_posts' tag.slug %}" style="font-size: 12px">#{{ tag }}</a>
                                 {% endfor %}
-                                <img class="float-right" style="cursor: pointer" src="{% static 'icons/right-arrow.png' %}" width="15px" onclick="window.location.href='{% url 'post_edit' public_post.pk %}'">
+                                <img class="float-right" style="cursor: pointer" src="{% static 'icons/right-arrow.png' %}" width="15px" onclick="window.location.href='{% url 'post_edit' privacy_post.pk %}'">
                             </div>
                         </div>
                     {% empty %}
                         <div class="col-12 text-center mt-5">
-                            <span>No published posts recently.</span>
+                            <span>No privacy posts recently.</span>
                         </div>
                     {% endfor %}
                 </div>

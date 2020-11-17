@@ -24,12 +24,12 @@
                     {{ form.content }}
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-light">
-                    <img src="{% static 'icons/tag.png' %}">
+                    <img src="{% static 'icons/tag.png' %}" width="12px">
                     Pick up tags
                     {{ form.tags }}
                     <!-- To add a new tag in post update view -->
 {#                    <div>#}
-{#                        <p>Tag not here? <a href="#tag_add" data-toggle="modal" data-target="#ModalTagForm">Add one</a></p>#}
+{#                        <p>Tag not here? <a href="#tag_add1" data-toggle="modal" data-target="#ModalTagForm">Add one</a></p>#}
 {#                        <div class="modal fade" id="ModalTagForm" tabindex="-1" role="dialog" aria-hidden="true">#}
 {#                            <div class="modal-dialog modal-dialog-centered" role="document">#}
 {#                                <div class="modal-content">#}
@@ -70,9 +70,6 @@
         #id_tags > li{
             display: inline;
             margin-right: 6px;
-        }
-        img{
-            width: 12px;
         }
     </style>
     <script type="text/javascript">

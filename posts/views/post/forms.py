@@ -2,7 +2,7 @@ from datetime import datetime
 from django import forms
 from django.db.models import Q
 
-from .models import Post, Tag
+from posts.models import Post, Tag
 
 
 class PostForm(forms.ModelForm):

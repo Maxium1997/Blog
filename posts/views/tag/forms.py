@@ -1,11 +1,11 @@
 from django import forms
 
-from .models import Tag
+from posts.models import Tag
 
 
 class TagForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
-        self.user = kwargs.pop('user')
+        self.creator = kwargs.pop('creator')
         super(TagForm, self).__init__(*args, **kwargs)
         self.fields['name'] = forms.CharField(required=True,
                                               widget=forms.TextInput(attrs={'class': 'form-control badge-pill',

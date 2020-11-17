@@ -6,9 +6,9 @@ from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView, UpdateView, DeleteView, CreateView
 
-from .models import Post
-from .definitions import Status
-from .forms import PostForm
+from posts.models import Post
+from posts.definitions import Status
+from posts.views.post.forms import PostForm
 # Create your views here.
 
 
@@ -18,7 +18,7 @@ class IndexView(TemplateView):
 
 @method_decorator(login_required, name='dispatch')
 class MyDraftsView(TemplateView):
-    template_name = 'posts/drafts.html'
+    template_name = 'post/drafts.html'
 
     def get_context_data(self, **kwargs):
         kwargs['drafts'] = Post.objects.filter(author=self.request.user, status=Status.Saved.value[0])
@@ -27,7 +27,7 @@ class MyDraftsView(TemplateView):
 
 @method_decorator(login_required, name='dispatch')
 class MyPublicPostsView(TemplateView):
-    template_name = 'posts/public.html'
+    template_name = 'post/public.html'
 
     def get_context_data(self, **kwargs):
         kwargs['public_posts'] = Post.objects.filter(author=self.request.user, status=Status.Published.value[0])
@@ -36,7 +36,7 @@ class MyPublicPostsView(TemplateView):
 
 @method_decorator(login_required, name='dispatch')
 class MyPrivacyPostView(TemplateView):
-    template_name = 'posts/privacy.html'
+    template_name = 'post/privacy.html'
     
     def get_context_data(self, **kwargs):
         kwargs['privacy_posts'] = Post.objects.filter(author=self.request.user, status=Status.Privacy.value[0])
@@ -46,8 +46,8 @@ class MyPrivacyPostView(TemplateView):
 @method_decorator(login_required, name='dispatch')
 class PostCreateView(CreateView):
     model = Post
-    fields = ['title', 'content']
-    template_name = 'posts/create.html'
+    fields = ['title', 'content', 'tags']
+    template_name = 'post/create.html'
 
     def get_context_data(self, **kwargs):
         kwargs['form'] = PostForm(author=self.request.user)
@@ -64,7 +64,7 @@ class PostCreateView(CreateView):
 class PostUpdateView(UpdateView):
     model = Post
     fields = ['title', 'content', 'tags']
-    template_name = 'posts/edit.html'
+    template_name = 'post/edit.html'
 
     def get_context_data(self, **kwargs):
         post = super(PostUpdateView, self).get_object()
@@ -81,12 +81,12 @@ class PostUpdateView(UpdateView):
 @method_decorator(login_required, name='dispatch')
 class PostDeleteView(DeleteView):
     model = Post
-    template_name = 'posts/delete.html'
+    template_name = 'post/delete.html'
     success_url = reverse_lazy('my_drafts')
 
 
 class PostDetailView(TemplateView):
-    template_name = 'posts/detail.html'
+    template_name = 'post/detail.html'
 
     def get_context_data(self, **kwargs):
         kwargs['post'] = Post.objects.get(pk=kwargs['pk'])

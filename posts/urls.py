@@ -1,10 +1,9 @@
-from django.contrib import admin
 from django.urls import path, include
 
-from .views import IndexView, MyDraftsView, MyPublicPostsView, MyPrivacyPostView, PostDetailView, \
+from .views.post.views import IndexView, MyDraftsView, MyPublicPostsView, MyPrivacyPostView, PostDetailView, \
     PostCreateView, PostUpdateView, PostDeleteView, \
     post_publish, post_tags_clear
-from .tag_views import TagBoxView, TagAddView, TagPostsView
+from .views.tag.views import TagBoxView, TagAddView, TagPostsView
 
 urlpatterns = [
     path('', IndexView.as_view(), name='index'),

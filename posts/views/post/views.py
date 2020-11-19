@@ -16,6 +16,14 @@ class IndexView(TemplateView):
     template_name = 'index.html'
 
 
+class PublicPostsView(TemplateView):
+    template_name = 'post/index.html'
+
+    def get_context_data(self, **kwargs):
+        kwargs['posts'] = Post.objects.filter(status=Status.Published.value[0]).order_by('published_time')
+        return super(PublicPostsView, self).get_context_data(**kwargs)
+
+
 @method_decorator(login_required, name='dispatch')
 class MyDraftsView(TemplateView):
     template_name = 'post/drafts.html'

@@ -36,10 +36,10 @@
                         <div class="col-12 border-bottom p-2">
                             <div>
                                 <span class="h3" style="cursor: pointer" onclick="window.location.href='{% url 'post_detail' privacy_post.pk %}'">{{ privacy_post.title }}</span>
-                                <span class="text-muted">{{ privacy_post.updated_time }}</span>
+                                <span class="text-muted"><mark>{{ privacy_post.updated_time }}</mark></span>
                             </div>
                             <div>
-                                <span class="text-muted">{{ privacy_post.content|shorten:2 }}</span>
+                                <span class="text-muted"><small>{{ privacy_post.content|shorten:2 }}</small></span>
                             </div>
                             <div>
                                 {% for tag in privacy_post.tags.all %}

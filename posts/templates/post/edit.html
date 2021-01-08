@@ -15,7 +15,7 @@
 {% block main %}
     <div class="container">
         <div class="row">
-            <form method="post">
+            <form action="{% url 'post_edit' post.pk %}" method="post">
                 {% csrf_token %}
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     {{ form.title }}
@@ -28,25 +28,7 @@
                     Pick up tags
                     {{ form.tags }}
                     <!-- To add a new tag in post update view -->
-{#                    <div>#}
-{#                        <p>Tag not here? <a href="#tag_add1" data-toggle="modal" data-target="#ModalTagForm">Add one</a></p>#}
-{#                        <div class="modal fade" id="ModalTagForm" tabindex="-1" role="dialog" aria-hidden="true">#}
-{#                            <div class="modal-dialog modal-dialog-centered" role="document">#}
-{#                                <div class="modal-content">#}
-{#                                    <form action="{% url 'tag_add1' %}" method="post">#}
-{#                                        {% csrf_token %}#}
-{#                                        <div id="modal-menu">#}
-{#                                            {{ tag_form }}#}
-{#                                        </div>#}
-{#                                        <div id="modal-footer">#}
-{#                                            <button type="submit" class="btn btn-primary">Add</button>#}
-{#                                            <a class="btn btn-secondary text-white" data-dismiss="modal">Cancel</a>#}
-{#                                        </div>#}
-{#                                    </form>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div>#}
+                    <p>Tag not here? <a href="{% url 'tag_add' %}">Add one</a></p>
                 </div>
 
                 {% if form.instance.status == status.Saved.value.0 %}

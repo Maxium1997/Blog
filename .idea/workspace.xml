@@ -2,12 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04e9dccf-1caf-477d-a43a-cb858b20e29a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/posts/templates/post/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Blog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Blog.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/templates/post/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/templates/post/detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/templates/post/drafts.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/templates/post/drafts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/templates/post/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/templates/post/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/templates/post/privacy.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/templates/post/privacy.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/templates/post/public.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/templates/post/public.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/posts/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/posts/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/posts/views/post/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/posts/views/post/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/views/tag/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/posts/views/tag/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +46,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -51,7 +56,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -108,7 +113,8 @@
       <workItem from="1603813293304" duration="18952000" />
       <workItem from="1605703822522" duration="498000" />
       <workItem from="1605718567977" duration="568000" />
-      <workItem from="1605754993831" duration="2922000" />
+      <workItem from="1605754993831" duration="3047000" />
+      <workItem from="1606499812012" duration="3774000" />
     </task>
     <servers />
   </component>
@@ -117,32 +123,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="557" y="307" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604396229040">
-      <screen x="0" y="23" width="1680" height="950" />
-    </state>
-    <state x="557" y="307" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1680.950@0.23.1680.950" timestamp="1604396229040" />
-    <state x="525" y="257" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1603951328724">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state x="525" y="257" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1603951328724" />
-    <state x="512" y="220" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605397003160">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state x="512" y="220" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1605397003160" />
-    <state x="224" y="92" key="SettingsEditor" timestamp="1604396192165">
-      <screen x="0" y="23" width="1680" height="950" />
-    </state>
-    <state x="224" y="76" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1603426895055" />
-    <state x="224" y="92" key="SettingsEditor/0.23.1680.950@0.23.1680.950" timestamp="1604396192165" />
-    <state width="625" height="500" key="SwitcherDM" timestamp="1605381019722">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="625" height="500" key="SwitcherDM/0.0.1680.1050@0.0.1680.1050" timestamp="1605381019722" />
-    <state x="421" y="18" width="838" height="1032" key="search.everywhere.popup" timestamp="1603987891345">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state x="421" y="18" width="838" height="1032" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1603987891345" />
   </component>
 </project>

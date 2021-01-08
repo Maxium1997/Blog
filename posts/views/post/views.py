@@ -9,6 +9,7 @@ from django.views.generic import TemplateView, UpdateView, DeleteView, CreateVie
 from posts.models import Post
 from posts.definitions import Status
 from posts.views.post.forms import PostForm
+from posts.views.tag.forms import TagForm
 # Create your views here.
 
 
@@ -77,6 +78,8 @@ class PostUpdateView(UpdateView):
     def get_context_data(self, **kwargs):
         post = super(PostUpdateView, self).get_object()
         kwargs['form'] = PostForm(instance=post, author=self.request.user)
+        kwargs['post'] = self.get_object()
+        kwargs['tag_form'] = TagForm(creator=self.request.user)
         kwargs['status'] = Status.__members__
         return super(PostUpdateView, self).get_context_data(**kwargs)
 
@@ -97,7 +100,13 @@ class PostDetailView(TemplateView):
     template_name = 'post/detail.html'
 
     def get_context_data(self, **kwargs):
-        kwargs['post'] = Post.objects.get(pk=kwargs['pk'])
+        post = Post.objects.get(pk=kwargs['pk'])
+        kwargs['post'] = post
+        kwargs['author_related_posts'] = Post.objects.filter(author=post.author).exclude(pk=post.pk)[:5]
+        try:
+            kwargs['tag_related_posts'] = post.tags.all().first().post_set.all().exclude(pk=post.pk)[:5]
+        except:
+            kwargs['tag_related_posts'] = None
         return super(PostDetailView, self).get_context_data(**kwargs)
 
 

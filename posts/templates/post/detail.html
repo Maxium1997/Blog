@@ -27,6 +27,29 @@
                 {% endfor %}
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+                <ul style="font-size: 20px">
+                    {% if author_related_posts %}
+                            <i>Other posts by {{ post.author }}</i>
+                            {% for related_post in author_related_posts %}
+                                <li><a href="{% url 'post_detail' related_post.pk %}" class="text-primary">{{ related_post.title }}</a></li>
+                            {% endfor %}
+                    {% endif %}
+                </ul>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <ul style="font-size: 20px">
+                    {% if tag_related_posts %}
+                        <i>Related posts</i>
+                        {% for related_post in tag_related_posts %}
+                            <li><a href="{% url 'post_detail' related_post.pk %}" class="text-primary">{{ related_post.title }}</a></li>
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
     </div>
     <style type="text/css">
         /*br{

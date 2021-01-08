@@ -1,3 +1,4 @@
+from django.shortcuts import get_object_or_404, redirect
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, CreateView, DetailView

@@ -18,7 +18,6 @@ urlpatterns = [
             path('privacy', MyPrivacyPostView.as_view(), name='my_privacy'),
             path('new', PostCreateView.as_view(), name='new_post'),
             path('<pk>/', include([
-                # path('detail', PostDetailView.as_view(), name='post_detail'),
                 path('edit', PostUpdateView.as_view(), name='post_edit'),
                 path('tags_clear', post_tags_clear, name='post_tags_clear'),
                 path('publish', post_publish, name='post_publish'),

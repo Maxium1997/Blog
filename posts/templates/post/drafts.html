@@ -36,10 +36,10 @@
                         <div class="col-12 border-bottom p-2">
                             <div>
                                 <span class="h3">{{ draft.title }}</span>
-                                <span class="text-muted">{{ draft.updated_time }}</span>
+                                <span class="text-muted"><mark>{{ draft.updated_time }}</mark></span>
                             </div>
                             <div>
-                                <span class="text-muted">{{ draft.content|shorten:5 }}</span>
+                                <span class="text-dark"><small>{{ draft.content|shorten:5 }}</small></span>
                             </div>
                             <div>
                                 {% for tag in draft.tags.all %}

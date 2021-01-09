@@ -3,7 +3,8 @@ from django.urls import path, include
 from .views.post.views import IndexView, PublicPostsView, \
     MyDraftsView, MyPublicPostsView, MyPrivacyPostView, PostDetailView, \
     PostCreateView, PostUpdateView, PostDeleteView, \
-    post_publish, post_tags_clear
+    post_publish, post_tags_clear, \
+    post_comment
 from .views.tag.views import TagBoxView, TagAddView, TagPostsView
 
 urlpatterns = [
@@ -22,6 +23,7 @@ urlpatterns = [
                 path('tags_clear', post_tags_clear, name='post_tags_clear'),
                 path('publish', post_publish, name='post_publish'),
                 path('delete', PostDeleteView.as_view(), name='post_delete'),
+                path('comment', post_comment, name='post_comment'),
             ]))
         ])),
 

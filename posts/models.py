@@ -40,3 +40,18 @@ class Post(models.Model):
                         photo,
                         save=True)
         self.save()
+
+
+class Message(models.Model):
+    commenter = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    email = models.EmailField()
+    content = models.TextField()
+    published_time = models.DateTimeField(auto_now_add=True)
+
+
+class Comment(Message):
+    source = models.ForeignKey(Post, on_delete=models.CASCADE, null=False)
+
+
+class SubComment(Message):
+    source = models.ForeignKey(Comment, on_delete=models.CASCADE, null=False)

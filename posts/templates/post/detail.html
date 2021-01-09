@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load post_filters %}
 
 {% block title %}
     {{ post.title }}
@@ -28,14 +29,14 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row pt-4 pb-4">
             <div class="col-sm-12 col-md-6">
                 <ul style="font-size: 20px">
                     {% if author_related_posts %}
-                            <i>Other posts by {{ post.author }}</i>
-                            {% for related_post in author_related_posts %}
-                                <li><a href="{% url 'post_detail' related_post.pk %}" class="text-primary">{{ related_post.title }}</a></li>
-                            {% endfor %}
+                        <i>Other posts by {{ post.author }}</i>
+                        {% for related_post in author_related_posts %}
+                            <li><a href="{% url 'post_detail' related_post.pk %}" class="text-primary">{{ related_post.title }}</a></li>
+                        {% endfor %}
                     {% endif %}
                 </ul>
             </div>
@@ -48,6 +49,37 @@
                         {% endfor %}
                     {% endif %}
                 </ul>
+            </div>
+        </div>
+
+        <div class="row border-top">
+            <div class="col-sm-12 col-md-8 pt-4 pb-4">
+                <div class="m-5 text-center">
+                    <i>Board </i>
+                    <i class="text-muted">
+                        {{ post.comment_set.count }} comment{{ post.comment_set.count|pluralize }} in this post
+                    </i>
+                </div>
+                {% for comment in post.comment_set.all %}
+                    <div>
+                        <B>{{ comment.email|hide_mail }}</B>
+                        <i class="text-muted">{{ comment.published_time }}</i>
+                        <p>{{ comment.content|linebreaksbr|safe }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="col-sm-12 col-md-8 border-top">
+                <div class="m-5 text-center">
+                    <i>Leave a comment</i><br>
+                    <i class="text-muted">Your email address will be hided.</i>
+                </div>
+                <div>
+                    <form action="{% url 'post_comment' post.pk %}" method="POST">
+                        {% csrf_token %}
+                        {{ comment_form }}
+                        <button type="submit" class="btn btn-light">Publish</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

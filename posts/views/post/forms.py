@@ -2,7 +2,7 @@ from datetime import datetime
 from django import forms
 from django.db.models import Q
 
-from posts.models import Post, Tag
+from posts.models import Post, Tag, Comment
 
 
 class PostForm(forms.ModelForm):
@@ -26,3 +26,31 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ['title', 'content', 'tags']
+
+
+class CommentForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        self.source = kwargs.pop('source')
+        self.commenter = kwargs.pop('user')
+
+        super(CommentForm, self).__init__(*args, **kwargs)
+        self.fields['email'] = forms.EmailField(required=True,
+                                                widget=forms.TextInput(attrs={'class': 'form-control m-2'}))
+        self.fields['content'] = forms.CharField(required=True,
+                                                 widget=forms.Textarea(attrs={'class': 'form-control m-2'}))
+
+    def save(self, commit=True):
+        comment = super(CommentForm, self).save(commit=False)
+        comment.source = self.source
+        try:
+            comment.commenter = self.commenter
+        except ValueError:
+            comment.commenter = None
+
+        if commit:
+            comment.save()
+        return comment
+
+    class Meta:
+        model = Comment
+        fields = ['email', 'content']

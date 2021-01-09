@@ -28,7 +28,7 @@
                     Pick up tags
                     {{ form.tags }}
                     <!-- To add a new tag in post update view -->
-                    <p>Tag not here? <a href="{% url 'tag_add' %}">Add one</a></p>
+                    <p>Tag not here? Before adding a new tag please save your post first. <a href="{% url 'tag_add' %}">Click me</a></p>
                 </div>
 
                 {% if form.instance.status == status.Saved.value.0 %}

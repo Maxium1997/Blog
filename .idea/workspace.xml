@@ -3,14 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="04e9dccf-1caf-477d-a43a-cb858b20e29a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/posts/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/posts/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/templates/post/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/templates/post/detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/templates/post/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/templates/post/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/templatetags/post_filters.py" beforeDir="false" afterPath="$PROJECT_DIR$/posts/templatetags/post_filters.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/posts/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/views/post/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/posts/views/post/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/views/post/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/posts/views/post/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
